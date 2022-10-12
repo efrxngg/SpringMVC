@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.content .card {
+    margin: 5%;
+}
+
+.content div:hover {
+    background-color: rgba(85, 85, 85, 0.918);
+}
+
+.card-footer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-footer div {
+    margin: 3%;
+}

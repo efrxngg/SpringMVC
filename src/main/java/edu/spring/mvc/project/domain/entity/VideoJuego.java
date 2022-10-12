@@ -21,12 +21,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class VideoJuego implements Serializable{
-    
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class VideoJuego implements Serializable {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -48,5 +48,5 @@ public class VideoJuego implements Serializable{
     @ManyToOne(fetch = FetchType.EAGER)
     private Estudio estudio;
 
-    private int estado; 
+    private int estado;
 }
