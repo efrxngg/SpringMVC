@@ -7,10 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add</title>
     <link th:replace="components/bootstrap_head :: bs_head">
+    <link rel="stylesheet" th:href="@{/videojuego/css/add.css}">
 </head>
 
-<body>
-
+<body class="cuerpo">
+    <header th:replace="components/header_base :: barra_navegacion"></header>
+    <div class="container contenedor">
+        <form action="" method="post">
+            <div th:replace="components/videojuego-form :: form"></div>
+            <input type="submit" value="Guardar" class="btn btn-primary" >
+        </form>
+    </div>
     <script th:replace="components/bootstrap_body :: bs_body"></script>
 </body>
 
