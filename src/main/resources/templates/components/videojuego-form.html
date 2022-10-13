@@ -1,7 +1,29 @@
-<div th:fragment="form" class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-    
-    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+<div th:fragment="form">
+    <label for="inp" class="form-label">Titulo</label>
+    <input th:field="*{titulo}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Text here...">
+
+    <label for="inp" class="form-label">Url Img</label>
+    <input th:field="*{rutaImg}" type="url" class="form-control" id="exampleFormControlInput1" placeholder="https://">
+
+    <label for="inp" class="form-label">Precio</label>
+    <input th:field="*{precio}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0.0">
+
+    <label for="inp" class="form-label">Cantidad</label>
+    <input th:field="*{cantidad}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="0">
+
+    <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
+    <textarea th:field="*{descripcion}" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Algo que decir..."></textarea>
+
+    <label for="categoria">Categoria</label>
+    <select class="form-control" id="categoria" th:field="*{categoria}">
+        <option value="" selected>Seleccione una opcion</option>
+        <option th:each="categoria : ${categorias}" th:value="${categoria.id_categoria}" th:text="${categoria.nombre}">
+        </option>
+    </select>
+
+    <label for="estudio">Estudio</label>
+    <select class="form-control" id="categoria" th:field="*{estudio}">
+        <option value="" selected>Seleccione una opcion</option>
+        <option th:each="estudio: ${estudios}" th:value="${estudio.id_estudio}" th:text="${estudio.nombre}"></option>
+    </select>
 </div>

@@ -18,4 +18,7 @@ public interface ICategoriaRepository extends JpaRepository<Categoria, Long> {
 
     @Query(value = "select * from categoria c where c.id = :id and c.estado = 1", nativeQuery = true)
     Optional<Categoria> findByIdandEstado(@Param("id") Long id);
+
+    @Query(value = "select * from categoria c where c.estado = 1", nativeQuery = true)
+    List<Categoria> findAloneCategoriaActive();
 }

@@ -1,4 +1,4 @@
-package edu.spring.mvc.project;
+package edu.spring.mvc.project.utils;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 
 import edu.spring.mvc.project.domain.entity.VideoJuego;
 import edu.spring.mvc.project.repositories.IVideoJuegoRepository;
-import edu.spring.mvc.project.service.IBaseService;
+import edu.spring.mvc.project.service.IVideoJuegoService;
 
 @Service
-public class VideoJuegoServiceImpl implements IBaseService<VideoJuego> {
+public class VideoJuegoServiceImpl implements IVideoJuegoService<VideoJuego> {
 
     @Autowired
     private IVideoJuegoRepository repository;

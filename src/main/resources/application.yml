@@ -15,4 +15,9 @@ spring:
     url: jdbc:mysql://localhost:3307/sb?zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
     username: root
     password: root1234
+
+  servlet:
+    multipart:
+      max-file-size:15MB.
+
   

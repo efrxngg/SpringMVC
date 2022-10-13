@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 
 import edu.spring.mvc.project.domain.entity.Categoria;
 import edu.spring.mvc.project.repositories.ICategoriaRepository;
-import edu.spring.mvc.project.service.IBaseService;
+import edu.spring.mvc.project.service.ICategoriaService;
 
 @Service
-public class CategoriaServiceImpl implements IBaseService<Categoria> {
+public class CategoriaServiceImpl implements ICategoriaService<Categoria> {
 
     @Autowired
     private ICategoriaRepository repository;
@@ -22,13 +22,25 @@ public class CategoriaServiceImpl implements IBaseService<Categoria> {
     @Override
     @Transactional
     public List<Categoria> findAll() throws Exception {
-        return repository.findAll();
+        List<Categoria> result = null;
+        try {
+            result = repository.findAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override
     @Transactional
-    public List<Categoria> findAllByActive() {
-        return repository.findAllByActive();
+    public List<Categoria> findAllByActive() throws Exception {
+        List<Categoria> result = null;
+        try {
+            result = repository.findAllByActive();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override
@@ -103,6 +115,18 @@ public class CategoriaServiceImpl implements IBaseService<Categoria> {
                 result = true;
             }
         } catch (IllegalArgumentException | OptimisticLockingFailureException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    @Transactional
+    public List<Categoria> findAloneCategoriaActive() throws Exception {
+        List<Categoria> result = null;
+        try {
+            result = repository.findAloneCategoriaActive();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return result;

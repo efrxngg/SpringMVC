@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 
 import edu.spring.mvc.project.domain.entity.Estudio;
 import edu.spring.mvc.project.repositories.IEstudioRepository;
-import edu.spring.mvc.project.service.IBaseService;
+import edu.spring.mvc.project.service.IEstudioService;
 
 @Service
-public class EstudioServiceImpl implements IBaseService<Estudio> {
+public class EstudioServiceImpl implements IEstudioService<Estudio> {
 
     @Autowired
     private IEstudioRepository repository;
@@ -27,8 +27,14 @@ public class EstudioServiceImpl implements IBaseService<Estudio> {
 
     @Override
     @Transactional
-    public List<Estudio> findAllByActive() {
-        return repository.findAllByActive();
+    public List<Estudio> findAllByActive() throws Exception {
+        List<Estudio> result = null;
+        try {
+            result = repository.findAllByActive();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override
@@ -103,6 +109,17 @@ public class EstudioServiceImpl implements IBaseService<Estudio> {
                 result = true;
             }
         } catch (IllegalArgumentException | OptimisticLockingFailureException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public List<Estudio> findAloneEstudioActive() throws Exception {
+        List<Estudio> result = null;
+        try {
+            result = repository.findAloneEstudioActive();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return result;

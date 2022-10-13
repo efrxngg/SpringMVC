@@ -11,10 +11,13 @@ import org.springframework.stereotype.Repository;
 import edu.spring.mvc.project.domain.entity.Estudio;
 
 @Repository
-public interface IEstudioRepository extends JpaRepository<Estudio, Long>{
+public interface IEstudioRepository extends JpaRepository<Estudio, Long> {
     @Query(value = "select * from estudio e where e.estado=1", nativeQuery = true)
     List<Estudio> findAllByActive();
 
     @Query(value = "select * from estudio e where e.id_estudio = :id and e.estado=1", nativeQuery = true)
     Optional<Estudio> findByIdAndEstado(@Param("id") Long id);
+
+    @Query(value = "select e.id_estudio, e.nombre, e.estado from estudio e where e.estado = 1", nativeQuery = true)
+    List<Estudio> findAloneEstudioActive();
 }

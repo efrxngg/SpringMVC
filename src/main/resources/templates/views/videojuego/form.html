@@ -13,8 +13,11 @@
 <body class="cuerpo">
     <header th:replace="components/header_base :: barra_navegacion"></header>
     <div class="container contenedor">
-        <form action="" method="post">
+        <form th:action="@{/videojuegos/add}" method="post" class="col-6" th:object="${videojuego}" enctype="multipart/form-data">
+
             <div th:replace="components/videojuego-form :: form"></div>
+            <br>
+            
             <input type="submit" value="Guardar" class="btn btn-primary" >
         </form>
     </div>
